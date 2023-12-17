@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Pages.FormMascotaPage"
+             Title="{Binding tituloForm}">
+    <ScrollView>
+        <VerticalStackLayout Margin="20">
+
+            <Frame Margin="0,10" WidthRequest="150" HeightRequest="150">
+                <Image Source="{Binding oMascotaModel.foto, Converter={StaticResource ArrayByteToImageSource}}" HeightRequest="150">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tabImageClic" Tapped="tabImageClic_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </Frame>
+
+            <Label Text="Nombre Mascota"/>
+            <Entry Text="{Binding oMascotaModel.oMascotaCLS.nombremascota}" Placeholder="Ingrese Nombre Mascota"/>
+
+            <Label Text="Seleccione tipo Mascota"/>
+            <Picker ItemsSource="{Binding oMascotaModel.listatipomascota}" ItemDisplayBinding="{Binding nombretipomascota}"
+                SelectedItem="{Binding oMascotaModel.itemTipoMascota}"/>
+
+            <Label Text="Fecha Nacimiento"/>
+            <DatePicker Date="{Binding oMascotaModel.oMascotaCLS.fechanacimiento}" Format="dd/MM/yyyy"/>
+
+            <Label Text="Seleccione Sexo Mascota"/>
+            <Picker SelectedItem="{Binding oMascotaModel.itemSexo}">
+                <Picker.Items>
+                    <x:String>--Seleccione--</x:String>
+                    <x:String>Macho</x:String>
+                    <x:String>Hembra</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Ancho Mascota"/>
+            <Entry Text="{Binding oMascotaModel.oMascotaCLS.ancho}" Placeholder="Ingrese Ancho Mascota"/>
+
+            <Label Text="Alto Mascota"/>
+            <Entry Text="{Binding oMascotaModel.oMascotaCLS.alto}" Placeholder="Ingrese Altura Mascota"/>
+
+            <Label Text="Observacion Mascota"/>
+            <Editor Text="{Binding oMascotaModel.oMascotaCLS.vobservacion}" Placeholder="Ingrese Observacion de la Mascota" HeightRequest="100"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button Text="Aceptar" x:Name="btnAceptarMascota" Clicked="btnAceptarMascota_Clicked" Margin="5,0"/>
+                <Button Text="Regresar" x:Name="btnregresar" Clicked="btnregresar_Clicked"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

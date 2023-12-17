@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Pages.FormCitaPage"
+             Title="Formulario Cita">
+    <ScrollView>
+        <VerticalStackLayout Margin="20">
+            <Label Text="Seleccione tipo Mascota"/>
+            <Picker ItemsSource="{Binding oCitaModel.listatipomascota}" ItemDisplayBinding="{Binding nombretipomascota}"
+                SelectedItem="{Binding oCitaModel.itemTipoMascota}"
+                    x:Name="picketTipoMascota" SelectedIndexChanged="picketTipoMascota_SelectedIndexChanged"/>
+
+            <Label Text="Seleccione Mascota"/>
+            <Picker ItemsSource="{Binding oCitaModel.listamascota}" ItemDisplayBinding="{Binding nombremascota}"
+                SelectedItem="{Binding oCitaModel.itemMascota}"/>
+
+            <Label Text="Fecha Enfermedad"/>
+            <DatePicker Date="{Binding oCitaModel.oCitaCLS.fechaenfermedad}"/>
+
+            <Label Text="Seleccione Sede"/>
+            <Picker ItemsSource="{Binding oCitaModel.listaSede}" ItemDisplayBinding="{Binding nombresede}"
+                SelectedItem="{Binding oCitaModel.itemSede}"/>
+
+            <Label Text="Descripcion Enfermedad"/>
+            <Editor Text="{Binding oCitaModel.oCitaCLS.descripcionenfermedad}" Placeholder="Ingrese descripcion de la Enfermedad"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button Text="Aceptar" x:Name="btnAceptarCita" Clicked="btnAceptarCita_Clicked"  Margin="5,0"/>
+                <Button Text="Regresar" x:Name="btnregresar" Clicked="btnregresar_Clicked"/>
+            </HorizontalStackLayout>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Pages.CambiarClavePage"
+             Title="Cambiar Contrasena">
+    <VerticalStackLayout Margin="10">
+        <Label 
+            Text="Contrasena Actual" />
+        <Entry IsPassword="True" Text="{Binding oUsuarioModel.oUsuarioCLS.contra}"/>
+
+        <Label 
+            Text="Contrasena Nueva" />
+        <Entry IsPassword="True" Text="{Binding oUsuarioModel.oUsuarioCLS.contranueva}"/>
+
+        <Label 
+            Text="Repita Nueva Contrasena" />
+        <Entry IsPassword="True" Text="{Binding oUsuarioModel.oUsuarioCLS.contrarepitenueva}"/>
+
+        
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button Text="Cmabiar Clave" x:Name="btnCambiarClave" Clicked="btnCambiarClave_Clicked" Margin="5,10"/>
+            <Button Text="Regresar" x:Name="btnregresar" Clicked="btnregresar_Clicked"/>
+        </HorizontalStackLayout>
+        
+    </VerticalStackLayout>
+</ContentPage>

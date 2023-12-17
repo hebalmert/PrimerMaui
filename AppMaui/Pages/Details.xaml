@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Pages.Details"
+             Title="Opciones Principales">
+    <VerticalStackLayout BackgroundColor="BlueViolet">
+        
+        <CollectionView ItemsSource="{Binding oOpcionesPrinciplaModel.listopcionesprincipal}" x:Name="collectionOpciones" Margin="30,30">
+            
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="30"/>
+
+            </CollectionView.ItemsLayout>
+           
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="White">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="tabOpcionPrincipal" Tapped="tabOpcionPrincipal_Tapped" 
+                                                  CommandParameter="{Binding nombreimagen}"/>
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout>
+                            <Image Source="{Binding nombreimagen}" WidthRequest="50" HeightRequest="50"/>
+                            <Label Text="{Binding titulo}" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                        
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+    </VerticalStackLayout>
+</ContentPage>

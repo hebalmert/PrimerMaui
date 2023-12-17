@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Pages.Menu"
+             Title="Menu">
+    <VerticalStackLayout>
+        <ListView ItemTapped="lstMenu_ItemTapped" ItemsSource="{Binding oMenuModel.ListaMenu}" x:Name="lstMenu" Margin="0,15">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout Padding="20,0">
+                            <Image Source="{Binding nombreIcono}" WidthRequest="30" HeightRequest="30"/>
+                            <Label Text="{Binding nombreItem}" VerticalOptions="Center" Margin="10,0,0,0"/>
+                        </HorizontalStackLayout>
+                        
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </VerticalStackLayout>
+</ContentPage>

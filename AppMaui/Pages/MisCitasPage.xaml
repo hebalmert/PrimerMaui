@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Pages.MisCitasPage"
+             Title="Mis Citas">
+    <AbsoluteLayout BackgroundColor="BlueViolet">
+        <ScrollView AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+            <CollectionView ItemsSource="{Binding oCitaModel.listacita}" x:Name="collectionOpciones" Margin="5,10,5,0">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="10"/>
+
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="tabOpcionPrincipal" Tapped="tabOpcionPrincipal_Tapped"
+                                              CommandParameter="{Binding nombreimagen}"/>
+                            </Frame.GestureRecognizers>
+                            <Grid RowDefinitions="*,auto">
+                                <VerticalStackLayout Grid.Column="0" Grid.Row="0" >
+                                    <Image Source="{Binding fotomascota, Converter={StaticResource ArrayByteToImageSource}}" WidthRequest="100" HeightRequest="100"/>
+
+                                    <Label FontAttributes="Bold" FontSize="16" TextColor="Green" HorizontalTextAlignment="Center" Margin="0,0,0,10">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}{0} - {1}">
+                                                <Binding Path="nombremascota"/>
+                                                <Binding Path="nombretipomascota"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+
+                                    <Label Text="{Binding descripcionenfermedad}" FontSize="11" FontAttributes="Bold" Margin="0,0,0,5"/>
+                                    <Label Text="{Binding nombreestadocita, StringFormat='Estado Cita: {0}'}" FontSize="11" FontAttributes="Bold" Margin="0,0,0,5"/>
+                                    <Label Text="{Binding fechaenfermedadcadena, StringFormat='Fecha Enfermedad: {0}'}" FontSize="11" FontAttributes="Bold" Margin="0,0,0,5"/>
+                                    <Label Text="{Binding nombreusuariomascota, StringFormat='Dueno: {0}'}" FontSize="11" FontAttributes="Bold" Margin="0,0,0,5"/>
+
+                                </VerticalStackLayout>
+                                <HorizontalStackLayout  Grid.Column="0" Grid.Row="1" HeightRequest="30" HorizontalOptions="Center">
+                                    <Button FontSize="8" Text="Enviar" Margin="2,0" BackgroundColor="Green" WidthRequest="45" Padding="1" 
+                                            IsVisible="{Binding nombreestadocita, Converter={StaticResource ShowButtonSend}}"/>
+                                    
+                                    <Button FontSize="8" Text="Eliminar" Margin="2,0" BackgroundColor="Red"  WidthRequest="45" Padding="1"
+                                            IsVisible="{Binding nombreestadocita, Converter={StaticResource ShowButtonDelete}}"/>
+                                    
+                                    <Button FontSize="8" Text="Editar" Margin="2,0" BackgroundColor="Blue" WidthRequest="45" Padding="1"
+                                            IsVisible="{Binding nombreestadocita, Converter={StaticResource ShowButtonEdit}}"/>
+                                    
+                                </HorizontalStackLayout>
+                            </Grid>
+
+
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </ScrollView>
+
+
+    </AbsoluteLayout>
+</ContentPage>

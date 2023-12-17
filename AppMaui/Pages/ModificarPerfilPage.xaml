@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Pages.ModificarPerfilPage"
+             Title="Modificar Perfil">
+    <VerticalStackLayout Margin="10">
+        <Frame Margin="0,10" WidthRequest="150" HeightRequest="150">
+            <Image Source="{Binding oPersonaModel.imagen, Converter={StaticResource ArrayByteToImageSource}}" HeightRequest="150">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tabImageClic" Tapped="tabImageClic_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            
+        </Frame>
+        <Label 
+            Text="Nombre" />
+        <Entry Text="{Binding oPersonaModel.oPersonaCLS.nombre}"/>
+
+        <Label 
+            Text="Apellido Paterno" />
+        <Entry Text="{Binding oPersonaModel.oPersonaCLS.appaterno}"/>
+
+        <Label 
+            Text="Apellido Materno" />
+        <Entry Text="{Binding oPersonaModel.oPersonaCLS.apmaterno}"/>
+
+
+        <Label 
+            Text="Telefono" />
+        <Entry Keyboard="Numeric" Text="{Binding oPersonaModel.oPersonaCLS.telefono}"/>
+
+        <Label 
+            Text="Fecha Nacimiento" />
+        <DatePicker Date="{Binding oPersonaModel.oPersonaCLS.fechanacimiento}" Format="dd/MM/yyyy"/>
+
+        
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button Text="Modificar Perfil" x:Name="btnModificarPerfil" Clicked="btnModificarPerfil_Clicked" Margin="5,0"/>
+            <Button Text="Regresar" x:Name="btnregresar" Clicked="btnregresar_Clicked"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

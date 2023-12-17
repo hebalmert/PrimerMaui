@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Pages.MisMascotasPage"
+             Title="Mis Mascotas">
+    <AbsoluteLayout BackgroundColor="BlueViolet">
+        <ScrollView AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <ListView ItemsSource="{Binding oMascotaModel.listmascota}" x:Name="lstMascota" ItemTapped="lstMascota_ItemTapped"
+                  HasUnevenRows="True" Margin="15" SelectionMode="None" SeparatorVisibility="None">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Frame Margin="10" Padding="10">
+                                <Grid ColumnDefinitions="*,*" RowDefinitions="50,50">
+                                    <Label Text="{Binding nombremascota}" Grid.Column="1" Grid.Row="0" FontAttributes="Bold" FontSize="16"
+                                       VerticalOptions="Center"/>
+                                    <Label Grid.Column="1" Grid.Row="1" FontAttributes="Bold" FontSize="12" TextColor="Grey">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{} El tipo mascota es {0} y su sexo es {1}">
+                                                <Binding Path="nombretipomascota"/>
+                                                <Binding Path="nombresexo"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    <Image Source="{Binding foto, Converter={StaticResource ArrayByteToImageSource}}" WidthRequest="100" HeightRequest="100" 
+                                   Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <Button Text="+" WidthRequest="40" HeightRequest="40" CornerRadius="20" AbsoluteLayout.LayoutFlags="PositionProportional"
+                x:Name="btnNuevaMascota" Clicked="btnNuevaMascota_Clicked"
+                AbsoluteLayout.LayoutBounds="0.95,0.95,40,40"/>
+
+    </AbsoluteLayout>
+</ContentPage>

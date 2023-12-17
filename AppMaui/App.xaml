@@ -1,0 +1,30 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppMaui"
+             xmlns:custom="clr-namespace:AppMaui.Converter"
+             x:Class="AppMaui.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <custom:ShowButtonEdit x:Key="ShowButtonEdit"/>
+            <custom:ShowButtonDelete x:Key="ShowButtonDelete"/>
+            <custom:ShowButtonSend x:Key="ShowButtonSend"/>
+            <custom:ConvertToImageSource x:Key="ArrayByteToImageSource"/>
+            <x:String x:Key="urlBase" >http://mywebapi.nexxtplanet.net/</x:String>
+            <x:String x:Key="Token" >dasfgsdfgsadfgwasdrfdvawesrtasefaesfawef</x:String>
+            <x:String x:Key="urlLogin" >api/Login/</x:String>
+            <x:String x:Key="urlPersona" >api/Persona/</x:String>
+            <x:String x:Key="urlUsuario" >api/Usuarios/</x:String>
+            <x:String x:Key="urlTipoUsuario" >api/TipoUsuarios/</x:String>
+            <x:String x:Key="urlTipoMascota" >api/TipoMascota/</x:String>
+            <x:String x:Key="urlMascota" >api/Mascota/</x:String>
+            <x:String x:Key="urlSede" >api/Sede/</x:String>
+            <x:String x:Key="urlCita" >api/Cita/</x:String>
+            <x:String x:Key="urlHistoriaCita" >api/HistorialCita/</x:String>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
